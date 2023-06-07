@@ -31,11 +31,11 @@ export default function Footer() {
           Vercel.
         </a>
       </div>
-      <div className="flex space-x-4 pb-4 sm:pb-0">
+      <div className="flex space-x-4">
         <Link
-          href="https://twitter.com/nutlope"
+          href="https://twitter.com/naklecha"
           className="group"
-          aria-label="TaxPal on Twitter"
+          aria-label="Naklecha on Twitter"
         >
           <svg
             aria-hidden="true"
@@ -45,9 +45,9 @@ export default function Footer() {
           </svg>
         </Link>
         <Link
-          href="https://github.com/Nutlope/roomGPT"
+          href="https://github.com/naklecha/fashionAI"
           className="group"
-          aria-label="TaxPal on GitHub"
+          aria-label="Naklecha on GitHub"
         >
           <svg
             aria-hidden="true"
