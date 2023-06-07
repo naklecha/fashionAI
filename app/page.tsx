@@ -41,7 +41,7 @@ export default function HomePage() {
                 <h3 className="mb-1 font-medium text-lg">Original</h3>
                 <Image
                   alt="Generated image with fashionAI.me"
-                  src="/original-pic.png"
+                  src="/original_pic.png"
                   className="w-full object-cover h-96 rounded-2xl"
                   width={400}
                   height={400}
