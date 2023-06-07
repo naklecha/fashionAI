@@ -36,7 +36,7 @@ export default function HomePage() {
         </Link>
         <div className="flex justify-between items-center w-full flex-col sm:mt-10 mt-6 font-mono">
           <div className="flex flex-col space-y-10 mt-4 mb-16">
-            <div className="flex sm:space-x-8 sm:flex-row flex-col">
+            <div className="flex sm:space-x-8 sm:flex-row flex-col p-5">
               <div>
                 <h3 className="mb-1 font-medium text-lg">Original</h3>
                 <Image
