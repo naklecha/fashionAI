@@ -15,7 +15,7 @@
     content: "";
     position: absolute;
     inset: 0px;
-    transform: scale(1);
+    transform: scale(2);
     pointer-events: none;
   }
 }
