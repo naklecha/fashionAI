@@ -83,7 +83,7 @@ export default function DreamPage() {
 
     if (res.status !== 200) {
       setError(true);
-      alert("You ran out of requests! Try the API on Replicate.");
+      alert("We have too much traffic right now! Try the API on Replicate instead.");
     } else {
       let newPhoto = await res.json();
       setMaskImage(newPhoto[1]);
@@ -228,7 +228,7 @@ export default function DreamPage() {
                   className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-xl mt-8"
                   role="alert"
                 >
-                  <span className="block sm:inline">You ran out of requests! Try the API on <a className="underline" href="https://replicate.com/naklecha/fashion-ai">Replicate</a>.</span>
+                  <span className="block sm:inline">We have too much traffic right now! Try the API on <a className="underline" href="https://replicate.com/naklecha/fashion-ai">Replicate</a> instead.</span>
                   <br></br>
                 </div>
               )}
