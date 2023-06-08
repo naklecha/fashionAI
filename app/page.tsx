@@ -29,7 +29,7 @@ export default function HomePage() {
           Take a picture of a person, then modify clothing or explore fashion using our AI.
         </h2>
         <Link
-          className="bg-pink-500 rounded-xl text-white font-medium px-4 py-3 sm:mt-10 mt-2 hover:bg-pink-400 transition"
+          className="bg-pink-500 rounded-xl text-white font-medium px-4 py-3 sm:mt-5 hover:bg-pink-400 transition"
           href="/dream"
         >
           Modify your clothing
