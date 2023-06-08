@@ -49,7 +49,7 @@ export default function DreamPage() {
   const [generatedImage, setGeneratedImage] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [restoredLoaded, setRestoredLoaded] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<boolean | null>(false);
   const [photoName, setPhotoName] = useState<string | null>(null);
   const [theme, setTheme] = useState<themeType>("Bottom Wear");
   const [prompt, setPrompt] = useState("latex shiny black pants");
@@ -81,10 +81,11 @@ export default function DreamPage() {
       body: JSON.stringify({ imageUrl: fileUrl, theme, prompt }),
     });
 
-    let newPhoto = await res.json();
     if (res.status !== 200) {
-      setError(newPhoto);
+      setError(true);
+      alert("You ran out of requests! Try the API on Replicate.");
     } else {
+      let newPhoto = await res.json();
       setMaskImage(newPhoto[1]);
       setMaskOnImage(newPhoto[2]);
       setGeneratedImage(newPhoto[3]);
@@ -227,39 +228,42 @@ export default function DreamPage() {
                   className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-xl mt-8"
                   role="alert"
                 >
-                  <span className="block sm:inline">{error}</span>
+                  <span className="block sm:inline">You ran out of requests! Try the API on <a className="underline" href="https://replicate.com/naklecha/fashion-ai">Replicate</a>.</span>
+                  <br></br>
                 </div>
               )}
-              <div className="flex space-x-2 mt-2 mb-4 justify-center">
-                {originalPhoto && !loading && (
-                  <button
-                    onClick={() => {
-                      setOriginalPhoto(null);
-                      setMaskImage(null);
-                      setMaskOnImage(null);
-                      setGeneratedImage(null);
-                      setRestoredLoaded(false);
-                      setError(null);
-                    }}
-                    className="bg-pink-500 rounded-full text-white font-medium px-4 py-2 mt-8 hover:bg-pink-500/80 transition"
-                  >
-                    Generate New Image
-                  </button>
-                )}
-                {generatedImage && (
-                  <button
-                    onClick={() => {
-                      downloadPhoto(
-                        generatedImage!,
-                        appendNewToName("generated.png")
-                      );
-                    }}
-                    className="bg-white rounded-full text-black border font-medium px-4 py-2 mt-8 hover:bg-gray-100 transition"
-                  >
-                    Download Generated Image
-                  </button>
-                )}
-              </div>
+              { !error &&
+                <div className="flex space-x-2 mt-2 mb-4 justify-center">
+                  {originalPhoto && !loading && (
+                    <button
+                      onClick={() => {
+                        setOriginalPhoto(null);
+                        setMaskImage(null);
+                        setMaskOnImage(null);
+                        setGeneratedImage(null);
+                        setRestoredLoaded(false);
+                        setError(null);
+                      }}
+                      className="bg-pink-500 rounded-full text-white font-medium px-4 py-2 mt-8 hover:bg-pink-500/80 transition"
+                    >
+                      Generate New Image
+                    </button>
+                  )}
+                  {generatedImage && (
+                    <button
+                      onClick={() => {
+                        downloadPhoto(
+                          generatedImage!,
+                          appendNewToName("generated.png")
+                        );
+                      }}
+                      className="bg-white rounded-full text-black border font-medium px-4 py-2 mt-8 hover:bg-gray-100 transition"
+                    >
+                      Download Generated Image
+                    </button>
+                  )}
+                </div>
+              }
             </motion.div>
           </AnimatePresence>
         </ResizablePanel>
