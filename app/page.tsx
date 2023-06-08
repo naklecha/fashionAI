@@ -8,7 +8,7 @@ export default function HomePage() {
   return (
     <div className="flex max-w-6xl mx-auto flex-col items-center justify-center py-2 min-h-screen">
       <Header />
-      <main className="flex flex-1 w-full flex-col items-center justify-center text-center px-4 sm:mt-20 mt-20 background-gradient">
+      <main className="flex flex-1 w-full flex-col items-center justify-center text-center px-4 sm:mt-20 mt-20">
         <a
           href="https://replicate.com/naklecha/fashion-ai"
           target="_blank"
@@ -28,8 +28,9 @@ export default function HomePage() {
         <h2 className="mx-auto mt-5 max-w-xl text-lg sm:text-gray-400  text-gray-500 leading-7 font-mono">
           Take a picture of a person, then modify clothing or explore fashion using our AI.
         </h2>
+        <br></br>
         <Link
-          className="bg-pink-500 rounded-xl text-white font-medium px-4 py-3 sm:mt-5 hover:bg-pink-400 transition"
+          className="bg-pink-500 rounded-xl text-white font-medium px-4 py-3 hover:bg-pink-400 transition"
           href="/dream"
         >
           Modify your clothing
