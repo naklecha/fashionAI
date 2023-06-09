@@ -48,7 +48,7 @@ export default function HomePage() {
                   height={400}
                 />
               </div>
-              <div className="sm:mt-0 mt-8">
+              {/* <div className="sm:mt-0 mt-8">
                 <h3 className="mb-1 font-medium text-lg">Detected Clothing</h3>
                 <Image
                   alt="Generated image with fashionAI.me"
@@ -57,9 +57,9 @@ export default function HomePage() {
                   src="/mask.png"
                   className="w-full object-cover h-96 rounded-2xl sm:mt-0 mt-2"
                 />
-              </div>
-              {/* <div className="sm:mt-0 mt-8">
-                <h3 className="mb-1 font-medium text-lg">Mask Over Original</h3>
+              </div> */}
+              <div className="sm:mt-0 mt-8">
+                <h3 className="mb-1 font-medium text-lg">Clothing Detected (pink)</h3>
                 <Image
                   alt="Generated image with fashionAI.me"
                   width={400}
@@ -67,7 +67,7 @@ export default function HomePage() {
                   src="/masked_img.png"
                   className="w-full object-cover h-96 rounded-2xl sm:mt-0 mt-2"
                 />
-              </div> */}
+              </div>
               <div className="sm:mt-0 mt-8">
                 <h3 className="mb-1 font-medium text-lg">"flower patterns shirt"</h3>
                 <Image

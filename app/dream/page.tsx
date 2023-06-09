@@ -52,7 +52,7 @@ export default function DreamPage() {
   const [error, setError] = useState<boolean | null>(false);
   const [photoName, setPhotoName] = useState<string | null>(null);
   const [theme, setTheme] = useState<themeType>("Top Wear");
-  const [prompt, setPrompt] = useState("a shirt with flowers on it");
+  const [prompt, setPrompt] = useState("a shirt with flowers patterns on it");
 
   const UploadDropZone = () => (
     <UploadDropzone
@@ -144,7 +144,7 @@ export default function DreamPage() {
                     <input
                       onChange={handleInputChange}
                       className="text-left font-medium w-full rounded p-2 text-black"
-                      placeholder="Ex. a shirt with flowers on it"
+                      placeholder="Ex. a shirt with flowers patterns on it"
                     />
                   </div>
                   <div className="mt-4 w-full max-w-sm">
@@ -167,20 +167,20 @@ export default function DreamPage() {
                 <img
                   alt="original photo"
                   src={originalPhoto}
-                  className="rounded-2xl h-96 mt-4"
+                  className="rounded-2xl mt-4"
                 />
               )}
               {maskImage && maskOnImage && generatedImage && originalPhoto && (
                 <div className="flex sm:gap-4 lg:gap-8 sm:flex-row flex-col flex-wrap justify-center">
-                  <div>
+                  {/* <div>
                     <h2 className="mb-1 font-medium text-lg">Original Image</h2>
                     <img
                       alt="Original Image"
                       src={originalPhoto}
                       className="rounded-2xl relative w-full h-96"
                     />
-                  </div>
-                  <div className="sm:mt-0 mt-8">
+                  </div> */}
+                  {/* <div className="sm:mt-0 mt-8">
                     <h2 className="mb-1 font-medium text-lg">Detected Clothing Mask</h2>
                     <a href={maskImage} target="_blank" rel="noreferrer">
                       <img
@@ -189,9 +189,9 @@ export default function DreamPage() {
                         className="rounded-2xl relative sm:mt-0 mt-2 cursor-zoom-in w-full h-96"
                       />
                     </a>
-                  </div>
+                  </div> */}
                   <div className="sm:mt-0 mt-8">
-                    <h2 className="mb-1 font-medium text-lg">Mask Over Original</h2>
+                    <h2 className="mb-1 font-medium text-lg">Clothing Detected (pink)</h2>
                     <a href={maskOnImage} target="_blank" rel="noreferrer">
                       <img
                         alt="Mask Over Original"
