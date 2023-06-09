@@ -51,8 +51,8 @@ export default function DreamPage() {
   const [restoredLoaded, setRestoredLoaded] = useState<boolean>(false);
   const [error, setError] = useState<boolean | null>(false);
   const [photoName, setPhotoName] = useState<string | null>(null);
-  const [theme, setTheme] = useState<themeType>("Bottom Wear");
-  const [prompt, setPrompt] = useState("latex shiny black pants");
+  const [theme, setTheme] = useState<themeType>("Top Wear");
+  const [prompt, setPrompt] = useState("a shirt with flowers on it");
 
   const UploadDropZone = () => (
     <UploadDropzone
@@ -105,7 +105,7 @@ export default function DreamPage() {
       <main className="flex flex-1 w-full flex-col items-center justify-center text-center px-4 mt-4 sm:mb-0 mb-8">
         <ResizablePanel>
           <AnimatePresence mode="wait">
-            <motion.div className="flex justify-between items-center w-full flex-col mt-4 font-mono">
+            <motion.div className="flex justify-between items-center w-full flex-col mt-4">
               {!maskImage && (
                 <>
                   <div className="space-y-4 w-full max-w-sm">
@@ -142,10 +142,9 @@ export default function DreamPage() {
                     </div>
 
                     <input
-                      value={prompt}
                       onChange={handleInputChange}
                       className="text-left font-medium w-full rounded p-2 text-black"
-                      placeholder="Ex. latex shiny black pants"
+                      placeholder="Ex. a shirt with flowers on it"
                     />
                   </div>
                   <div className="mt-4 w-full max-w-sm">

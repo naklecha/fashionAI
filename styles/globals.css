@@ -7,15 +7,15 @@
 @media (min-width: 400px) {
   .background-gradient::before {
     background: radial-gradient(
-      20% 50% at 50% 50%,
-      rgba(247, 71, 200, 0.376) 0%,
+      80% 50% at 50% 50%,
+      rgba(222, 36, 175, 0.376) 0%,
       rgba(37, 38, 44, 0) 100%
     );
     z-index: -10;
     content: "";
     position: absolute;
     inset: 0px;
-    transform: scale(2);
+    transform: scale(1);
     pointer-events: none;
   }
 }

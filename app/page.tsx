@@ -6,7 +6,7 @@ import SquigglyLines from "../components/SquigglyLines";
 
 export default function HomePage() {
   return (
-    <div className="flex max-w-6xl mx-auto flex-col items-center justify-center py-2 min-h-screen">
+    <div className="flex max-w-6xl mx-auto flex-col items-center justify-center py-2 min-h-screen background-gradient">
       <Header />
       <main className="flex flex-1 w-full flex-col items-center justify-center text-center px-4 sm:mt-20 mt-20">
         <a
@@ -35,7 +35,7 @@ export default function HomePage() {
         >
           Modify your clothing
         </Link>
-        <div className="flex justify-between items-center w-full flex-col sm:mt-10 mt-6 font-mono">
+        <div className="flex justify-between items-center w-full flex-col sm:mt-10 mt-6">
           <div className="flex flex-col space-y-10 mt-4 mb-16">
             <div className="flex sm:space-x-8 sm:flex-row flex-col p-5">
               <div>
@@ -49,7 +49,7 @@ export default function HomePage() {
                 />
               </div>
               <div className="sm:mt-0 mt-8">
-                <h3 className="mb-1 font-medium text-lg">Detected Clothing Mask</h3>
+                <h3 className="mb-1 font-medium text-lg">Detected Clothing</h3>
                 <Image
                   alt="Generated image with fashionAI.me"
                   width={400}
@@ -58,7 +58,7 @@ export default function HomePage() {
                   className="w-full object-cover h-96 rounded-2xl sm:mt-0 mt-2"
                 />
               </div>
-              <div className="sm:mt-0 mt-8">
+              {/* <div className="sm:mt-0 mt-8">
                 <h3 className="mb-1 font-medium text-lg">Mask Over Original</h3>
                 <Image
                   alt="Generated image with fashionAI.me"
@@ -67,7 +67,7 @@ export default function HomePage() {
                   src="/masked_img.png"
                   className="w-full object-cover h-96 rounded-2xl sm:mt-0 mt-2"
                 />
-              </div>
+              </div> */}
               <div className="sm:mt-0 mt-8">
                 <h3 className="mb-1 font-medium text-lg">"flower patterns shirt"</h3>
                 <Image
