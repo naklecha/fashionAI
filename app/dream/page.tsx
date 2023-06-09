@@ -86,6 +86,7 @@ export default function DreamPage() {
       alert("We have too much traffic right now! Try the API on Replicate instead.");
     } else {
       let newPhoto = await res.json();
+      setOriginalPhoto(newPhoto[0]);
       setMaskImage(newPhoto[1]);
       setMaskOnImage(newPhoto[2]);
       setGeneratedImage(newPhoto[3]);
@@ -172,14 +173,14 @@ export default function DreamPage() {
               )}
               {maskImage && maskOnImage && generatedImage && originalPhoto && (
                 <div className="flex sm:gap-4 lg:gap-8 sm:flex-row flex-col flex-wrap justify-center">
-                  {/* <div>
+                  <div>
                     <h2 className="mb-1 font-medium text-lg">Original Image</h2>
                     <img
                       alt="Original Image"
                       src={originalPhoto}
                       className="rounded-2xl relative w-full h-96"
                     />
-                  </div> */}
+                  </div>
                   {/* <div className="sm:mt-0 mt-8">
                     <h2 className="mb-1 font-medium text-lg">Detected Clothing Mask</h2>
                     <a href={maskImage} target="_blank" rel="noreferrer">
