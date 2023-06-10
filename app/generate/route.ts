@@ -6,10 +6,10 @@ import { headers } from "next/headers";
 // Create a new ratelimiter, that allows 5 requests per 24 hours
 const ratelimit = redis
   ? new Ratelimit({
-      redis: redis,
-      limiter: Ratelimit.fixedWindow(20, "1440 m"),
-      analytics: true,
-    })
+    redis: redis,
+    limiter: Ratelimit.fixedWindow(20, "1440 m"),
+    analytics: true,
+  })
   : undefined;
 
 export async function POST(request: Request) {
@@ -48,7 +48,7 @@ export async function POST(request: Request) {
         "f203e9b8755a51b23f8ebdd80bb4f8b7177685b8d3fcca949abfbf8606b6d42a",
       input: {
         image: imageUrl,
-        clothing: theme=="Top Wear" ? "topwear" : "bottomwear",
+        clothing: theme == "Top Wear" ? "topwear" : "bottomwear",
         prompt: "a person wearing " + prompt + ", best quality, extremely detailed, photo from Pinterest, interior, cinematic photo, ultra-detailed, ultra-realistic, award-winning"
       },
     }),
@@ -57,10 +57,13 @@ export async function POST(request: Request) {
   let jsonStartResponse = await startResponse.json();
 
   let endpointUrl = jsonStartResponse.urls.get;
+  let cancelUrl = jsonStartResponse.urls.cancel;
 
   // GET request to get the status of the image restoration process & return the result when it's ready
   let restoredImage: string | null = null;
+  let countWait = 0;
   while (!restoredImage) {
+    countWait += 1;
     // Loop in 1s intervals until the alt text is ready
     console.log("polling for result...");
     let finalResponse = await fetch(endpointUrl, {
@@ -74,14 +77,27 @@ export async function POST(request: Request) {
 
     if (jsonFinalResponse.status === "succeeded") {
       restoredImage = jsonFinalResponse.output;
-    } else if (jsonFinalResponse.status === "failed") {
+    } else if (jsonFinalResponse.status === "failed" || countWait > 20) {
       break;
     } else {
       await new Promise((resolve) => setTimeout(resolve, 1000));
     }
   }
 
+  console.log("cancelling run call...");
+  await fetch(cancelUrl, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Token " + process.env.REPLICATE_API_KEY,
+    },
+  });
+
+  if(!restoredImage) {
+    return new Response("Failed to restore image", { status: 500 });
+  }
+
   return NextResponse.json(
-    restoredImage ? restoredImage : "Failed to restore image"
+    restoredImage
   );
 }
