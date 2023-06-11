@@ -19,4 +19,4 @@ NOTE: This repository is an extremely hacky modification of [RoomGPT](https://gi
 ## What else could you do?
 - Try out [roomgpt.io](roomgpt.io), its much cooler than fashionAI + he got 1 million users which is wild!
 - [Hassan](https://twitter.com/nutlope) did most of the hard work for this amazing fontend. 
-- All I did was edit it a lil :3 
+- All I did was edit it a lil (with terrible commit messages) :c
