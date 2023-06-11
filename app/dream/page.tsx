@@ -163,6 +163,9 @@ export default function DreamPage() {
                   </div>
                 </>
               )}
+              {!originalPhoto &&
+                <p className="text-red-400 mt-5">*full body images produce much better results, also please use this tool ethically*</p>
+              }
               {!originalPhoto && <UploadDropZone />}
               {originalPhoto && !maskImage && (
                 <img

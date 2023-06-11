@@ -5,6 +5,7 @@ import Script from "next/script";
 export default function Header() {
   return (
     <header className="flex flex-col xs:flex-row justify-between items-center w-full mt-3 border-b pb-7 sm:px-4 px-2 border-gray-500 gap-2">
+      
       <Link href="/" className="flex space-x-2">
         <h1 className="sm:text-3xl text-xl font-bold ml-2 tracking-tight font-mono">
           fashionAI
@@ -37,6 +38,7 @@ export default function Header() {
         </Link>
       </div>
       <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-C3DCC5LQ4P" />
+      <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="naklecha" data-description="Support me on Buy me a coffee!" data-message="" data-color="#FF813F" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
       <Script
         id='google-analytics'
         strategy="afterInteractive"
