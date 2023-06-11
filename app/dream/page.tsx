@@ -101,90 +101,94 @@ export default function DreamPage() {
   };
 
   return (
-    <div className="flex max-w-6xl mx-auto flex-col items-center justify-center py-2 min-h-screen">
-      <Header />
-      <main className="flex flex-1 w-full flex-col items-center justify-center text-center px-4 mt-4 sm:mb-0 mb-8">
-        <ResizablePanel>
-          <AnimatePresence mode="wait">
-            <motion.div className="flex justify-between items-center w-full flex-col mt-4">
-              {!maskImage && (
-                <>
-                  <div className="space-y-4 w-full max-w-sm">
-                    <div className="flex mt-3 items-center space-x-3">
-                      <Image
-                        src="/number-1-white.svg"
-                        width={30}
-                        height={30}
-                        alt="1 icon"
-                      />
-                      <p className="text-left font-medium">
-                        Choose your clothing item.
-                      </p>
-                    </div>
-                    <DropDown
-                      theme={theme}
-                      setTheme={(newTheme) =>
-                        setTheme(newTheme as typeof theme)
-                      }
-                      themes={themes}
-                    />
-                  </div>
-                  <div className="space-y-4 w-full max-w-sm">
-                    <div className="flex mt-10 items-center space-x-3">
-                      <Image
-                        src="/number-2-white.svg"
-                        width={30}
-                        height={30}
-                        alt="1 icon"
-                      />
-                      <p className="text-left font-medium">
-                        Describe the clothing item you want to create.
-                      </p>
-                    </div>
+    <div>
 
-                    <input
-                      onChange={handleInputChange}
-                      className="text-left font-medium w-full rounded p-2 text-black"
-                      placeholder="Ex. a shirt with flowers patterns on it"
-                    />
-                  </div>
-                  <div className="mt-4 w-full max-w-sm">
-                    <div className="flex mt-6 w-96 items-center space-x-3">
-                      <Image
-                        src="/number-3-white.svg"
-                        width={30}
-                        height={30}
-                        alt="1 icon"
+      <p className="p-2 bg-orange-500 text-white font-medium text-center">For a research student like me, running this website is pretty expensive. You can support me on <a className="underline" href="https://www.buymeacoffee.com/naklecha" target="_blank">BuyMeACoffee</a> &lt;3</p>
+
+      <div className="flex max-w-6xl mx-auto flex-col items-center justify-center py-2 min-h-screen">
+        <Header />
+        <main className="flex flex-1 w-full flex-col items-center justify-center text-center px-4 mt-4 sm:mb-0 mb-8">
+          <ResizablePanel>
+            <AnimatePresence mode="wait">
+              <motion.div className="flex justify-between items-center w-full flex-col mt-4">
+                {!maskImage && (
+                  <>
+                    <div className="space-y-4 w-full max-w-sm">
+                      <div className="flex mt-3 items-center space-x-3">
+                        <Image
+                          src="/number-1-white.svg"
+                          width={30}
+                          height={30}
+                          alt="1 icon"
+                        />
+                        <p className="text-left font-medium">
+                          Choose your clothing item.
+                        </p>
+                      </div>
+                      <DropDown
+                        theme={theme}
+                        setTheme={(newTheme) =>
+                          setTheme(newTheme as typeof theme)
+                        }
+                        themes={themes}
                       />
-                      <p className="text-left font-medium">
-                        Upload a picture of a person.
-                      </p>
                     </div>
-                  </div>
-                </>
-              )}
-              {!originalPhoto &&
-                <p className="text-red-400 mt-5">*full body images produce much better results, also please use this tool ethically*</p>
-              }
-              {!originalPhoto && <UploadDropZone />}
-              {originalPhoto && !maskImage && (
-                <img
-                  alt="original photo"
-                  src={originalPhoto}
-                  className="rounded-2xl mt-4"
-                />
-              )}
-              {maskImage && maskOnImage && generatedImage && originalPhoto && (
-                <div className="flex sm:gap-4 lg:gap-8 sm:flex-row flex-col flex-wrap justify-center">
-                  <div>
-                    <h2 className="mb-1 font-medium text-lg">Original Image</h2>
-                    <img
-                      alt="Original Image"
-                      src={originalPhoto}
-                      className="rounded-2xl relative w-full h-96"
-                    />
-                  </div>
-                  {/* <div className="sm:mt-0 mt-8">
+                    <div className="space-y-4 w-full max-w-sm">
+                      <div className="flex mt-10 items-center space-x-3">
+                        <Image
+                          src="/number-2-white.svg"
+                          width={30}
+                          height={30}
+                          alt="1 icon"
+                        />
+                        <p className="text-left font-medium">
+                          Describe the clothing item you want to create.
+                        </p>
+                      </div>
+
+                      <input
+                        onChange={handleInputChange}
+                        className="text-left font-medium w-full rounded p-2 text-black"
+                        placeholder="Ex. a shirt with flowers patterns on it"
+                      />
+                    </div>
+                    <div className="mt-4 w-full max-w-sm">
+                      <div className="flex mt-6 w-96 items-center space-x-3">
+                        <Image
+                          src="/number-3-white.svg"
+                          width={30}
+                          height={30}
+                          alt="1 icon"
+                        />
+                        <p className="text-left font-medium">
+                          Upload a picture of a person.
+                        </p>
+                      </div>
+                    </div>
+                  </>
+                )}
+                {!originalPhoto &&
+                  <p className="text-red-400 mt-5">*full body images produce much better results, also please use this tool ethically*</p>
+                }
+                {!originalPhoto && <UploadDropZone />}
+                {originalPhoto && !maskImage && (
+                  <img
+                    alt="original photo"
+                    src={originalPhoto}
+                    className="rounded-2xl mt-4"
+                  />
+                )}
+                {maskImage && maskOnImage && generatedImage && originalPhoto && (
+                  <div className="flex sm:gap-4 lg:gap-8 sm:flex-row flex-col flex-wrap justify-center">
+                    <div>
+                      <h2 className="mb-1 font-medium text-lg">Original Image</h2>
+                      <img
+                        alt="Original Image"
+                        src={originalPhoto}
+                        className="rounded-2xl relative w-full h-96"
+                      />
+                    </div>
+                    {/* <div className="sm:mt-0 mt-8">
                     <h2 className="mb-1 font-medium text-lg">Detected Clothing Mask</h2>
                     <a href={maskImage} target="_blank" rel="noreferrer">
                       <img
@@ -194,84 +198,86 @@ export default function DreamPage() {
                       />
                     </a>
                   </div> */}
-                  <div className="sm:mt-0 mt-8">
-                    <h2 className="mb-1 font-medium text-lg">Clothing Detected (pink)</h2>
-                    <a href={maskOnImage} target="_blank" rel="noreferrer">
-                      <img
-                        alt="Mask Over Original"
-                        src={maskOnImage}
-                        className="rounded-2xl relative sm:mt-0 mt-2 cursor-zoom-in w-full h-96"
-                      />
-                    </a>
+                    <div className="sm:mt-0 mt-8">
+                      <h2 className="mb-1 font-medium text-lg">Clothing Detected (pink)</h2>
+                      <a href={maskOnImage} target="_blank" rel="noreferrer">
+                        <img
+                          alt="Mask Over Original"
+                          src={maskOnImage}
+                          className="rounded-2xl relative sm:mt-0 mt-2 cursor-zoom-in w-full h-96"
+                        />
+                      </a>
+                    </div>
+                    <div className="sm:mt-0 mt-8">
+                      <h2 className="mb-1 font-medium text-lg">Generated Image</h2>
+                      <a href={generatedImage} target="_blank" rel="noreferrer">
+                        <img
+                          alt="Generated Image"
+                          src={generatedImage}
+                          className="rounded-2xl relative sm:mt-0 mt-2 cursor-zoom-in w-full h-96"
+                        />
+                      </a>
+                    </div>
                   </div>
-                  <div className="sm:mt-0 mt-8">
-                    <h2 className="mb-1 font-medium text-lg">Generated Image</h2>
-                    <a href={generatedImage} target="_blank" rel="noreferrer">
-                      <img
-                        alt="Generated Image"
-                        src={generatedImage}
-                        className="rounded-2xl relative sm:mt-0 mt-2 cursor-zoom-in w-full h-96"
-                      />
-                    </a>
+                )}
+                {loading && (
+                  <button
+                    disabled
+                    className="bg-pink-400 rounded-full text-white font-medium px-4 pt-2 pb-3 mt-8 w-40"
+                  >
+                    <span className="pt-4">
+                      <LoadingDots color="white" style="large" />
+                    </span>
+                  </button>
+                )}
+                {error && (
+                  <div
+                    className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-xl mt-8"
+                    role="alert"
+                  >
+                    <span className="block sm:inline">We have too much traffic right now! Try the API on <a className="underline" href="https://replicate.com/naklecha/fashion-ai">Replicate</a> instead.</span>
+                    <br></br>
                   </div>
-                </div>
-              )}
-              {loading && (
-                <button
-                  disabled
-                  className="bg-pink-400 rounded-full text-white font-medium px-4 pt-2 pb-3 mt-8 w-40"
-                >
-                  <span className="pt-4">
-                    <LoadingDots color="white" style="large" />
-                  </span>
-                </button>
-              )}
-              {error && (
-                <div
-                  className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-xl mt-8"
-                  role="alert"
-                >
-                  <span className="block sm:inline">We have too much traffic right now! Try the API on <a className="underline" href="https://replicate.com/naklecha/fashion-ai">Replicate</a> instead.</span>
-                  <br></br>
-                </div>
-              )}
-              { !error &&
-                <div className="flex space-x-2 mt-2 mb-4 justify-center">
-                  {originalPhoto && !loading && (
-                    <button
-                      onClick={() => {
-                        setOriginalPhoto(null);
-                        setMaskImage(null);
-                        setMaskOnImage(null);
-                        setGeneratedImage(null);
-                        setRestoredLoaded(false);
-                        setError(null);
-                      }}
-                      className="bg-pink-500 rounded-full text-white font-medium px-4 py-2 mt-8 hover:bg-pink-500/80 transition"
-                    >
-                      Generate New Image
-                    </button>
-                  )}
-                  {generatedImage && (
-                    <button
-                      onClick={() => {
-                        downloadPhoto(
-                          generatedImage!,
-                          appendNewToName("generated.png")
-                        );
-                      }}
-                      className="bg-white rounded-full text-black border font-medium px-4 py-2 mt-8 hover:bg-gray-100 transition"
-                    >
-                      Download Generated Image
-                    </button>
-                  )}
-                </div>
-              }
-            </motion.div>
-          </AnimatePresence>
-        </ResizablePanel>
-      </main>
-      <Footer />
+                )}
+                {!error &&
+                  <div className="flex space-x-2 mt-2 mb-4 justify-center">
+                    {originalPhoto && !loading && (
+                      <button
+                        onClick={() => {
+                          setOriginalPhoto(null);
+                          setMaskImage(null);
+                          setMaskOnImage(null);
+                          setGeneratedImage(null);
+                          setRestoredLoaded(false);
+                          setError(null);
+                        }}
+                        className="bg-pink-500 rounded-full text-white font-medium px-4 py-2 mt-8 hover:bg-pink-500/80 transition"
+                      >
+                        Generate New Image
+                      </button>
+                    )}
+                    {generatedImage && (
+                      <button
+                        onClick={() => {
+                          downloadPhoto(
+                            generatedImage!,
+                            appendNewToName("generated.png")
+                          );
+                        }}
+                        className="bg-white rounded-full text-black border font-medium px-4 py-2 mt-8 hover:bg-gray-100 transition"
+                      >
+                        Download Generated Image
+                      </button>
+                    )}
+                  </div>
+                }
+              </motion.div>
+            </AnimatePresence>
+          </ResizablePanel>
+        </main>
+        <Footer />
+      </div>
     </div>
+
   );
 }
