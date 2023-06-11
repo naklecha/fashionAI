@@ -1,5 +1,5 @@
 # fashionAI
-Modify clothing using AI at [fashionAI.me](fashionAI.me) (example image of Kanye below).
+Modify clothing using AI at [fashionAI.me](https://www.fashionai.me/) (example image of Kanye below).
 
 twitter: [@naklecha](https://twitter.com/naklecha)
 
