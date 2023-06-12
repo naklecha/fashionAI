@@ -77,21 +77,21 @@ export async function POST(request: Request) {
 
     if (jsonFinalResponse.status === "succeeded") {
       restoredImage = jsonFinalResponse.output;
-    } else if (jsonFinalResponse.status === "failed" || countWait > 25) {
+    } else if (jsonFinalResponse.status === "failed") {
       break;
     } else {
       await new Promise((resolve) => setTimeout(resolve, 1000));
     }
   }
 
-  console.log("cancelling run call...");
-  await fetch(cancelUrl, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: "Token " + process.env.REPLICATE_API_KEY,
-    },
-  });
+  // console.log("cancelling run call...");
+  // await fetch(cancelUrl, {
+  //   method: "POST",
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //     Authorization: "Token " + process.env.REPLICATE_API_KEY,
+  //   },
+  // });
 
   if(!restoredImage) {
     return new Response("Failed to restore image", { status: 500 });
