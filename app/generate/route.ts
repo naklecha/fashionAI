@@ -77,7 +77,7 @@ export async function POST(request: Request) {
 
     if (jsonFinalResponse.status === "succeeded") {
       restoredImage = jsonFinalResponse.output;
-    } else if (jsonFinalResponse.status === "failed" || countWait > 20) {
+    } else if (jsonFinalResponse.status === "failed" || countWait > 25) {
       break;
     } else {
       await new Promise((resolve) => setTimeout(resolve, 1000));
