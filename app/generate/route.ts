@@ -7,7 +7,7 @@ import { headers } from "next/headers";
 const ratelimit = redis
   ? new Ratelimit({
     redis: redis,
-    limiter: Ratelimit.fixedWindow(5, "1440 m"),
+    limiter: Ratelimit.fixedWindow(20, "1440 m"),
     analytics: true,
   })
   : undefined;
