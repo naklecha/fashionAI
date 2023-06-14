@@ -52,7 +52,7 @@ export default function DreamPage() {
   const [error, setError] = useState<boolean | null>(false);
   const [photoName, setPhotoName] = useState<string | null>(null);
   const [theme, setTheme] = useState<themeType>("Top Wear");
-  const [prompt, setPrompt] = useState("a shirt with flowers patterns on it");
+  const [prompt, setPrompt] = useState("a black shirt");
 
   const UploadDropZone = () => (
     <UploadDropzone
@@ -149,7 +149,7 @@ export default function DreamPage() {
                       <input
                         onChange={handleInputChange}
                         className="text-left font-medium w-full rounded p-2 text-black"
-                        placeholder="Ex. a shirt with flowers patterns on it"
+                        placeholder="Ex. a black shirt"
                       />
                     </div>
                     <div className="mt-4 w-full max-w-sm">
