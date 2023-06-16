@@ -49,7 +49,7 @@ export async function POST(request: Request) {
       input: {
         image: imageUrl,
         clothing: theme == "Top Wear" ? "topwear" : "bottomwear",
-        prompt: "a person wearing " + prompt + ", best quality, extremely detailed, photo from Pinterest, interior, cinematic photo, ultra-detailed, ultra-realistic, award-winning"
+        prompt: "a person wearing " + prompt
       },
     }),
   });
